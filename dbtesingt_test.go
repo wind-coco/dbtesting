@@ -12,7 +12,7 @@ func TestRunDBInDocker(t *testing.T) {
 
 func TestMain(m *testing.M) {
 	os.Exit(RunDBInDocker(m, &config.Config{
-		Image:         "mysql:5.6",
+		Image:         "mysql",
 		User:          "root",
 		Password:      "123456",
 		DBName:        "test_db",

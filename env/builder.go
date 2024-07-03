@@ -1,9 +1,10 @@
 package env
 
 import (
-	"testing-in-docker/config"
-	"testing-in-docker/env/mongo"
-	"testing-in-docker/env/mysql"
+	"github.com/wind-coco/dbtesting/config"
+	"github.com/wind-coco/dbtesting/env/mongo"
+	"github.com/wind-coco/dbtesting/env/mysql"
+	"github.com/wind-coco/dbtesting/env/redis"
 )
 
 type Builder struct {
@@ -18,6 +19,9 @@ func NewBuilder(cfg *config.Config) *Builder {
 		envBuilder = mysql.NewBuilder(cfg)
 	case config.Mongo:
 		envBuilder = mongo.NewBuilder(cfg)
+	case config.Redis:
+		envBuilder = redis.NewBuilder(cfg)
+
 	}
 	return &Builder{
 		envBuilder,
